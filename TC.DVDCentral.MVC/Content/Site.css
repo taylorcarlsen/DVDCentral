@@ -1,0 +1,76 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+
+div.formcontainer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+}
+
+.bg-dark {
+    /*background-color:rebeccapurple !important;*/
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(135, 211, 124, 1) 0%, rgba(200, 247, 197, 1) 35%);
+}
+
+.header {
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(144, 198, 149, 1);
+}
+
+    .header h1, .header h2, .header h3 {
+        margin: 0px;
+        padding: 0px 0px 0px 10px;
+        color: white;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    }
+
+.sidebar {
+    margin: 10px 0px 0px 10px;
+    border-width: 1px;
+    border-style: solid;
+    min-height: 500px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+.main {
+    margin: 10px;
+    padding: 0px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+
+.table tr:nth-child(odd) {
+    background-color: darkseagreen;
+}
+
+.nav-item{
+    margin-left: 30px
+}

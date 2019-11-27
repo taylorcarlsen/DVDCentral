@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">DVD Central</a>
+        <!--<button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle Navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+            <div class="navbar-collapse collapse" id="navbarNav">
+            -->
+        <div class="navbar-btn" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" runat="server" href="~/Directors">Directors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" runat="server" href="~/Ratings">Ratings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" runat="server" href="~/Genres">Genres</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 sidebar rounded-top">
+                <div class="header rounded-top">
+                    <h3>Directors</h3>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+
+            <div class="col-md-9 main rounded-top p-2">
+                <div class="header rounded-top">
+                    <h3>@ViewBag.Title</h3>
+                </div>
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - DVD Central</p>
+                </footer>
+            </div>
+
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

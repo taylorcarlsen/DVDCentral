@@ -1,0 +1,35 @@
+//Create UI with the Admin page to naviagate to the other pages on the system.
+	Add button for:
+		Movies
+		Orders
+		Ratings
+		Directors
+		Genres
+
+//2.	ManageRatings.aspx
+	a.	Used to display, update, delete, and insert Ratings into the Ratings table.
+	b.	The area should be enclosed in section as shown in the screenshot.
+	c.	Screen should use the master page. 
+	d.	The buttons should call the appropriate methods in the business layer.
+	e.	The rating should display in the textbox when the user selects the entry in the dropdownlist.
+	f.	Add a Back to Admin link.
+	g.	Updates, Inserts, and Deletes should be immediately seen in the dropdownlist.
+
+3.	ManageGenres.aspx
+	a.	Used to display, update, delete, and insert Genres into the Genres table.
+	b.	The area should be enclosed in section as shown in the screenshot.
+	c.	Screen should use the master page. 
+	d.	The buttons should call the appropriate methods in the business layer.
+	e.	The rating should display in the textbox when the user selects the entry in the dropdownlist.
+	f.	Add a Back to Admin link.
+	g.	Updates, Inserts, and Deletes should be immediately seen in the dropdownlist.
+
+//4.	ManageDirectors.aspx
+	a.	Used to display, update, delete, and insert Genres into the Directors table.
+	b.	The area should be enclosed in section as shown in the screenshot.
+	c.	Screen should use the master page. 
+	d.	The buttons should call the appropriate methods in the business layer.
+	e.	The rating should display in the textbox when the user selects the entry in the dropdownlist.
+	f.	Add a Back to Admin link.
+	g.	Updates, Inserts, and Deletes should be immediately seen in the dropdownlist.
+

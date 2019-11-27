@@ -1,0 +1,76 @@
+Checkpoint #2
+
+At this point you should already have 2 projects in your DVD Central solution. 
+<initials>.DVDCentral.Data 
+and 
+<initials>.DVDCentral.WebForms
+Note:If you named your application something other than DVDCentral that is fine.
+
+//1.	Add the following projects to your DVDCentral Solution
+	a.	<initials>. DVDCentral.Models – Class Library
+	b.	<initials>. DVDCentral.BusinessLogic – Class Library
+	c.	<initials>. DVDCentral.BusinessLogic.Tests – Unit Test Project
+
+//2.	Make sure your Data layer has a class for each of the following:
+	a.	Genre
+	b.	Movie (with a many to many relationship to Genre)
+	c.	Director
+	d.	Rating
+	e.	Format
+	f.	Order
+	g.	OrderItem
+	h.	Customer
+
+//3.	Add the following classes with appropriate properties to your Models layer
+	a.	Genre
+	b.	Director
+	c.	Rating
+	d.	Format
+
+//4.	Create the following files in the Business Layer making sure each manager class has a GetAll, GetById, Create, Update, and Delete method. Each manager class must implement IDisposable
+	a.	GenreManager 
+	b.	DirectorManager 
+	c.	RatingManager 
+	d.	FormatManager 
+
+//5.	Add the following Test Classes to the BusinessLogic.Tests Project
+	a.	GenreManagerTests
+	b.	DirectorManagerTests
+	c.	FormatManagerTests
+	d.	RatingManagerTests
+
+6.	Add the following test methods to each test class
+	a.	Create_Returns_New_Id
+	b.	Get_All_Returns_More_Than_One
+	c.	Get_By_Id_Returns_Existing
+	d.	Get_By_Id_Returns_Null_If_Not_Exists
+	e.	Delete_Returns_True_If_Deleted_Existing
+	f.	Delete_Returns_False_If_Not_Exists
+	g.	Update_Returns_Null_If_Not_Exists
+	h.	Update_Returns_Updated_Object
+	i.	Each Test Class must have an TestInitialize and TestCleanup method
+
+	//DirectorManager
+	//FormatManager
+	//GenreManager
+	//RatingManager
+
+
+//7.	Modify the following in WebForms project
+	a.	Change the color of the top bar.
+	b.	Change the name of the application.
+	c.	Add an Admin link to the navbar.
+
+//8.	Add the following empty pages:
+
+	a.	Admin.aspx – Web Form with Master Page.
+	b.	ManageMovies.aspx - Web Form with Master Page.
+	c.	ManageDirectors.aspx - Web Form with Master Page.
+	d.	ManageRatings.aspx - Web Form with Master Page.
+	e.	ManageGenres.aspx - Web Form with Master Page.
+	f.	ManageOrders.aspx - Web Form with Master Page.
+
+
+9.	Submit the URL to your DevOps repo
+
+

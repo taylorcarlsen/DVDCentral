@@ -1,0 +1,53 @@
+
+
+1.	Add SideBar to filter Movies on Genres with Partial.
+	a.	Clicking on a Genres should show the Movies with that Genre.
+	i.	New Movie Controller Method.
+	b.	Display the List of Genres.
+	c.	Each Genre should be a link to the MovieController ByGenre method that has a single parameter of Genre Id.
+	d.	The ByGenre method should be a filtered list of the Movies that are that Genre.
+	e.	Add “All” link to the bottom of the list what shows all the Movies.
+
+
+
+3.	Complete the following features for Movies
+	a.	Index – with image thumbnails
+	b.	Details – with Image displayed
+	c.	Delete – with Image displayed
+
+
+
+
+
+
+4.	Add a  ViewModel class:
+	a.	MovieViewModel that supports the Create and Edit actions of the MovieController
+
+
+5.	Modify the Edit Method to the MovieController to utilize the MovieViewModel.  The view should contain the following: (6 points)
+	a.	TextBox for the Movie Title.
+	b.	TextBox for the Movie Description.
+	c.	Textbox or other control for the Quantity.
+	d.	File Upload for the Image Path.
+	e.	DropDownList for the Director.
+	f.	ListBox for the Genres and allow for Multi-Select.
+	g.	DropDownList for the Rating.
+	h.	DropDownList for the Format.
+	i.	Id should not be displayed in the Html.
+	j.	Added DisplayName attributes in the models to change the label text.
+	k.	Should able to edit and save a picture for the image.
+
+
+6.	Modify the Create Method to the MovieController to utilize the MovieViewModel.  The view should contain the following: (6 points)
+	a.	TextBox for the MovieTitle.
+	b.	TextBox for the MovieDescription.
+	c.	Textbox or other control for the Quantity.
+	d.	File Upload for the Image Path.
+	e.	DropDownList for the Director.
+	f.	ListBox for the Genres and allow for Multi-Select.
+	g.	DropDownList for the Rating.
+	h.	DropDownList for the Format.
+	i.	Id should not be displayed in the Html.
+	j.	Should able to edit and save a picture for the image.
+
+	k.	Added DisplayName attributes in the models to change the label text.
