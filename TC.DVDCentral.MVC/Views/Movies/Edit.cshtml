@@ -10,51 +10,75 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Movie Edit</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Movie.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Movie.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Movie.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Movie.Title, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Movie.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Movie.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Movie.Description, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PossibleRatings, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <img src="~/images/@Model.ImagePath" alt="@Model.Title Image" id="movie-image" class="image-med"/><br/>
-                <input type="file" name="File" id="File" accept="image/*" onchange="showImage(event)"/>
-                @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.SelectedRatingId, new SelectList(Model.PossibleRatings, "Id", "Description", Model.MovieId), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectedRatingId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Cost, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
+                <img src="~/images/@Model.ImagePath" alt="@Model.MovieTitle Image" id="movie-image" class="image-med" /><br />
+                <input type="file" name="File" id="File" accept="image/*" onchange="showImage(event)" />
+                @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Movie.Genres, htmlAttributes: new { @class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.Movie.Cost, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.ListBoxFor(model => model.CurrentGenres, new MultiSelectList(Model.PossibleGenres, "Id", "Description"), new { htmlAttributes = new {@class="form-control"}})
-                @Html.ValidationMessageFor(model => model.CurrentGenres, "", new { @class = "txt-danger"})
+                @Html.EditorFor(model => model.Movie.Cost, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Movie.Cost, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Movie.Genres, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(model => model.CurrentGenres, new MultiSelectList(Model.PossibleGenres, "Id", "Description"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CurrentGenres, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PossibleDirectors, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedDirectorId, new SelectList(Model.PossibleDirectors, "Id", "FullName", Model.MovieId), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectedDirectorId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PossibleFormats, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedFormatId, new SelectList(Model.PossibleFormats, "Id", "Description", Model.MovieId), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectedFormatId, "", new { @class = "text-danger" })
             </div>
         </div>
 

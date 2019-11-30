@@ -26,7 +26,7 @@ namespace TC.DVDCentral.BusinessLogic
             List<Models.Rating> ratings = new List<Models.Rating>();
             foreach(var i in allRatings)
             {
-                ratings.Add(new Models.Rating { Description = i.Description, Id = i.Id });
+                ratings.Add(new Models.Rating { Id = i.Id, Description = i.Description});
             }
             return ratings;
         }

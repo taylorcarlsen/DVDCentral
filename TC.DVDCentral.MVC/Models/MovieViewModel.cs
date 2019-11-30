@@ -8,11 +8,13 @@ namespace TC.DVDCentral.MVC.Models
 {
     public class MovieViewModel
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public int MovieId { get; set; }
+        public string MovieTitle { get; set; }
+        public string MovieDescription { get; set; }
+        public decimal MovieCost { get; set; }
+        
+             
         public string ImagePath { get; set; }
-        public decimal Cost { get; set; }
         public List<Rating> PossibleRatings { get; set; }
         public int SelectedRatingId { get; set; }
         public List<Format> PossibleFormats { get; set; }
@@ -22,6 +24,7 @@ namespace TC.DVDCentral.MVC.Models
         public List<Genre> PossibleGenres { get; set; }
         public HttpPostedFileBase File { get; set; }
         public List<int> CurrentGenres { get; set; }
-        public DVDCentral.Models.Movie Movie { get; set; }
+        public DVDCentral.Models.Genre Genre { get; set; }
+        public Movie Movie { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace TC.DVDCentral.BusinessLogic
         public List<Models.Movie> GetAll()
         {
             List<Models.Movie> movieModel = new List<Models.Movie>();
-            foreach(var movie in db.Movies.Include("Rating").Include("Format").Include("Genre").OrderBy(x=>x.Description))
+            foreach(var movie in db.Movies.Include("Rating").Include("Format").Include("Director").OrderBy(x=>x.Description))
             {
                 movieModel.Add(new Models.Movie
                 {
@@ -34,12 +34,14 @@ namespace TC.DVDCentral.BusinessLogic
                     Description = movie.Description,
                     ImagePath = movie.ImagePath,
                     Cost = movie.Cost,
-                    Rating = new Models.Rating { Id = movie.Rating.Id, Description = movie.Rating.Description },
                     Format = new Models.Format { Id = movie.Format.Id, Description = movie.Format.Description },
+                    Rating = new Models.Rating { Id = movie.Rating.Id, Description = movie.Rating.Description },
                     Director = new Models.Director { Id = movie.Director.Id, FirstName = movie.Director.FirstName, LastName = movie.Director.LastName }
 
                 });
             }
+            var movie1 = movieModel;
+
             return movieModel;
         }
 
@@ -69,7 +71,7 @@ namespace TC.DVDCentral.BusinessLogic
 
         public Models.Movie GetById(int id)
         {
-            var existing = db.Movies.Include("Rating").Include("Format").Include("Genre").FirstOrDefault(x => x.Id == id);
+            var existing = db.Movies.Include("Rating").Include("Format").Include("Genres").Include("Director").FirstOrDefault(x => x.Id == id);
             if(existing == null)
             {
                 return null;
@@ -88,7 +90,7 @@ namespace TC.DVDCentral.BusinessLogic
                 Cost = existing.Cost,
                 ImagePath = existing.ImagePath,
                 Title = existing.Title,
-                //Genre = existingGenres,
+                Genres = existingGenres,
                 Director = new Models.Director { Id = existing.Director.Id, FirstName = existing.Director.FirstName, LastName = existing.Director.LastName },
                 Format = new Models.Format { Id = existing.Format.Id, Description = existing.Format.Description },
                 Rating = new Models.Rating { Id = existing.Rating.Id, Description = existing.Rating.Description }
@@ -113,6 +115,9 @@ namespace TC.DVDCentral.BusinessLogic
             newRow.Description = movieModel.Description;
             newRow.Title = movieModel.Title;
             newRow.ImagePath = movieModel.ImagePath;
+
+            Data.Rating existingRatings = db.Ratings.SingleOrDefault(x => x.Id == movieModel.Rating.Id);
+            newRow.Rating = existingRatings ?? throw new ArgumentException("The associated rating cannot be found.");
 
             Data.Director existingDirectors = db.Directors.SingleOrDefault(x => x.Id == movieModel.Director.Id);
             newRow.Director = existingDirectors ?? throw new ArgumentException("The associated Director cannot be found.");
@@ -151,7 +156,10 @@ namespace TC.DVDCentral.BusinessLogic
             existing.Director = existingDirectors ?? throw new ArgumentException("The associated Director cannot be found.");
 
             Data.Format existingFormats = db.Formats.SingleOrDefault(x => x.Id == movieModel.Format.Id);
-            existing.Format = existingFormats ?? throw new AggregateException("The associated format cannot be found.");
+            existing.Format = existingFormats ?? throw new ArgumentException("The associated format cannot be found.");
+
+            Data.Rating existingRatings = db.Ratings.SingleOrDefault(x => x.Id == movieModel.Rating.Id);
+            existing.Rating = existingRatings ?? throw new ArgumentException("The associated Rating cannot be found.");
 
             db.SaveChanges();
             return movieModel;

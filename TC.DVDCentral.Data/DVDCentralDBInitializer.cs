@@ -56,6 +56,17 @@ namespace TC.DVDCentral.Data
             });
             context.Directors.AddRange(defaultDirectors);
 
+            /*List<Movie> defaultMovies = new List<Movie>();
+
+            defaultMovies.Add(new Movie
+            {
+                Title = "Star Wars: Episode IV - A New Hope",
+                Description = "The Imperial Forces -- under orders from cruel Darth Vader (David Prowse) -- hold Princess Leia (Carrie Fisher) hostage, in their efforts to quell the rebellion against the Galactic Empire.",
+                Cost = (decimal)5.99,
+                Rating = 1,
+
+            })*/
+
             base.Seed(context);
         }
     }

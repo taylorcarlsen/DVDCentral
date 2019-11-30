@@ -3,9 +3,6 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
 <div>
     <h4>Movie</h4>
     <hr />
@@ -13,18 +10,55 @@
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
         <dt>
-            <img src="~/images/@Model.ImagePath" class="image-thumb" alt="@Model.Title Image"/><br/>
+            <img src="~/images/@Model.ImagePath" class="image-thumb" alt="@Model.Title Image" /><br />
         </dt>
-
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Title)
         </dt>
-
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Cost)
         </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Director)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Director)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Format)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Format)
+        </dd>
     </dl>
+    <h3>Genres</h3>
+    <table>
+        @foreach (var item in Model.Genres) 
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
+        }
+    </table>
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
