@@ -45,29 +45,10 @@ namespace TC.DVDCentral.BusinessLogic
             return movieModel;
         }
 
-        /*public List<Models.Movie> GetAllByGenreId(int genreId)
+        public List<Models.Movie> GetAllByGenreId(int genreId)
         {
-            
-
-
-            List<Models.Movie> moviesModel = new List<Models.Movie>();
-            foreach(var movie in db.Movies.Include("Rating").Include("Format").Include("Genre").OrderBy(x => x.Title))
-            {
-                moviesModel.Add(new Models.Movie
-                {
-                    Id = movie.Id,
-                    Description = movie.Description,
-                    Cost = movie.Cost,
-                    ImagePath = movie.ImagePath,
-                    Title = movie.Title,
-                    Format = new Models.Format { Id = movie.Format.Id, Description = movie.Description },
-                    Director = new Models.Director { Id = movie.Director.Id, FirstName = movie.Director.FirstName, LastName = movie.Director.LastName },
-                    Genre = new Models.Genre { Id = movie.Genres.Id, Description = movie.Genres.Description },
-                    Rating = new Models.Rating { Id = movie.Rating.Id, Description = movie.Rating.Description }
-                });
-            }
-            return moviesModel;
-        }*/
+            return null;
+        }
 
         public Models.Movie GetById(int id)
         {
