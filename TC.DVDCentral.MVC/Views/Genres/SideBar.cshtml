@@ -7,10 +7,10 @@
     @foreach (var item in Model)
     {
         <li class="list-group-item">
-            @Html.ActionLink(item.Name, "ByGenre", "Movies", new { id = item.Id }, null)
+            @Html.ActionLink(item.Description, "GetAllByGenreId", "Movies", new { id = item.Id }, null)
         </li>
     }
     <li class="list-group-item">
-        @Html.ActionLink("View All", "Index", "ProgramDeclarations", null, null)
+        @Html.ActionLink("View All", "Index", "Movies", null, null)
     </li>
 </ul>

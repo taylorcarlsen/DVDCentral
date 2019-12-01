@@ -4,89 +4,86 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
-
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-<div class="form-horizontal">
-    <h4>MovieViewModel</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.Movie.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Movie.Title, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Movie.Title, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Movie.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Movie.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Movie.Title, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Movie.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Movie.Description, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Movie.Description, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Movie.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Movie.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Movie.Description, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.PossibleRatings, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.SelectedRatingId, new SelectList(Model.PossibleRatings, "Id", "Description"), 
-            new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SelectedRatingId, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PossibleRatings, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedRatingId, new SelectList(Model.PossibleRatings, "Id", "Description"),
+                new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectedRatingId, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <img src="#" alt="@Model.MovieTitle Image" id="movie-image" class="img-med" style="display:none" /><br />
-            <input type="file" name="File" id="File" accept="image/*" onchange="showImage(event)" />
-            @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Movie.Cost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Movie.Cost, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Movie.Cost, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Movie.Cost, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Movie.Cost, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Movie.Cost, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PossibleDirectors, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedDirectorId, new SelectList(Model.PossibleDirectors, "Id", "FullName"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectedDirectorId, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.PossibleDirectors, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.SelectedDirectorId, new SelectList(Model.PossibleDirectors, "Id", "FullName"), new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SelectedDirectorId, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.PossibleFormats, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.SelectedFormatId, new SelectList(Model.PossibleFormats, "Id", "Description"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectedFormatId, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.PossibleFormats, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.SelectedFormatId, new SelectList(Model.PossibleFormats, "Id", "Description"), new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SelectedFormatId, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Movie.Genres, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(model => model.CurrentGenres, new MultiSelectList(Model.PossibleGenres, "Id", "Description"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CurrentGenres, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Movie.Genres, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.ListBoxFor(model => model.CurrentGenres, new MultiSelectList(Model.PossibleGenres, "Id", "Description"), new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.CurrentGenres, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="#" alt="@Model.MovieTitle Image" id="movie-image" class="img-med" style="display:none" /><br />
+                <input type="file" name="File" id="File" accept="image/*" onchange="showImage(event)" />
+                @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
-</div>
 }
 
 <div>
@@ -100,7 +97,7 @@
 <script>
     var showImage = function (event) {
         var output = document.getElementById('movie-image');
-        output.src = URL.createObjectURL(event.target.file[0]);
+        output.src = URL.createObjectURL(event.target.files[0]);
         output.style.display = "block";
     };
 </script>

@@ -14,13 +14,10 @@
             @Html.DisplayFor(model => model.Title)
         </dd>
         <dt>
-            <img src="~/images/@Model.ImagePath" class="image-thumb" alt="@Model.Title Image" /><br />
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
+
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Title)
+            <img src="~/images/@Model.ImagePath" class="image-thumb" alt="@Model.Title Image" /><br />
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Cost)
@@ -29,22 +26,22 @@
             @Html.DisplayFor(model => model.Cost)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Rating)
+            @Html.DisplayNameFor(model => model.Rating.Description)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Rating)
+            @Html.DisplayFor(model => model.Rating.Description)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Director)
+            @Html.DisplayNameFor(model => model.Director.FullName)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Director)
+            @Html.DisplayFor(model => model.Director.FullName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Format)
+            @Html.DisplayNameFor(model => model.Format.Description)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Format)
+            @Html.DisplayFor(model => model.Format.Description)
         </dd>
     </dl>
     <h3>Genres</h3>

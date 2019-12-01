@@ -9,21 +9,6 @@
 	e.	Add “All” link to the bottom of the list what shows all the Movies.
 
 
-
-3.	Complete the following features for Movies
-	a.	Index – with image thumbnails
-	b.	Details – with Image displayed
-	c.	Delete – with Image displayed
-
-
-
-
-
-
-4.	Add a  ViewModel class:
-	a.	MovieViewModel that supports the Create and Edit actions of the MovieController
-
-
 5.	Modify the Edit Method to the MovieController to utilize the MovieViewModel.  The view should contain the following: (6 points)
 	a.	TextBox for the Movie Title.
 	b.	TextBox for the Movie Description.
