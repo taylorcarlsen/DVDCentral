@@ -26,6 +26,22 @@ namespace TC.DVDCentral.MVC.Controllers
             return View(movies);
         }
 
+        public ActionResult GetAllByGenreId(int id)
+        {
+            List<DVDCentral.Models.Movie> movies;
+            using (manager = new MovieManager())
+            {
+                movies = manager.GetAllByGenreId(id);
+            }
+
+            if(movies.Any())
+            {
+                ViewBag.Message = movies[0].Title;
+            }
+
+            return View("Index", movies);
+        }
+
         // GET: Movies/Details/5
         public ActionResult Details(int id)
         {
