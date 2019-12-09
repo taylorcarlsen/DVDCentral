@@ -23,5 +23,6 @@ namespace TC.DVDCentral.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Rating> Ratings { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
