@@ -1,0 +1,62 @@
+﻿@model TC.DVDCentral.Models.ShoppingCart
+
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+
+    <div style="margin-left:15px">
+
+        <div>
+            <table style="margin: 15px 0px 0px 10px">
+                <tr>
+                    <th style="width: 130px">
+                        @Html.DisplayNameFor(model => model.Items[0].Title)
+                    </th>
+                    <th style="width: 200px">
+                        @Html.DisplayNameFor(model => model.Items[0].Description)
+                    </th>
+                    <th style="width: 130px">
+                        @Html.DisplayNameFor(model => model.Items[0].Cost)
+                    </th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.Description)
+                        </td>
+                        <td>
+                            $@Html.DisplayFor(m => item.Cost)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", "Movies", new { id = item.Id }, null) |
+                            @Html.ActionLink("Remove from Cart", "RemoveFromCart", "ShoppingCart", new { id = item.Id }, null)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div style="margin-top: 30px">
+            @Html.DisplayFor(model => model.Count) Item(s)
+        </div>
+        <div style="margin:15px 0px">
+            Subtotal: $@Html.DisplayFor(model => model.ITEM_PRICE)
+        </div>
+        <div style="margin:15px 0px">
+            Sales Tax: $@Html.DisplayFor(model => model.SalesTax)
+        </div>
+        <div style="margin:15px 0px">
+            Total: $@Html.DisplayFor(model => model.Cost)
+        </div>
+    </div>
+<div style="margin: 15px 0px">
+    @Html.ActionLink("Checkout", "Checkout")
+</div>
+<div>
+    @Html.ActionLink("Clear Cart", "ClearCart")
+</div>
+

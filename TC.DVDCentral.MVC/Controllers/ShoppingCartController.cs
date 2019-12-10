@@ -88,7 +88,16 @@ namespace TC.DVDCentral.MVC.Controllers
                 PersistCart(cart);
             }
             else
-                cart = (ShoppingCart)Session["Cart"];
+                using (manager = new ShoppingCartManager())
+                {
+                    cart = (ShoppingCart)Session["Cart"];
+                    if(cart != null)
+                    {
+                        cart.ITEM_PRICE = manager.CalculateTotal(cart.Items);
+                        cart.SalesTax = Math.Round(manager.CalculateSalesTax(cart.ITEM_PRICE),2);
+                        cart.Cost = Math.Round(cart.ITEM_PRICE + cart.SalesTax,2);
+                    }
+                }
         }
     }
 }

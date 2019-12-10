@@ -12,7 +12,7 @@ namespace TC.DVDCentral.Data
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImagePath { get; set; }
-        public decimal Cost { get; set; }
+        public double Cost { get; set; }
         public Rating Rating { get; set; }
         public Format Format { get; set; }
         public Director Director { get; set; }

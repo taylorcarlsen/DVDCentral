@@ -57,5 +57,29 @@ namespace TC.DVDCentral.BusinessLogic
                 }
             }
         }
+
+        public double CalculateTotal(List<Movie> movies)
+        {
+            double previousCost = 0;
+            double currentTotal = 0;
+            double currentCost = 0;
+
+            foreach(var movieCost in movies)
+            {
+                previousCost = currentTotal;
+                currentCost = movieCost.Cost;
+                currentTotal = currentCost + previousCost;
+            }
+            //double calculateTax = currentTotal * .05;
+            //double totalCost = currentTotal + calculateTax;
+
+            return currentTotal;
+        }
+
+        public double CalculateSalesTax(double itemCost)
+        {
+            double calculate = itemCost * .05;
+            return calculate;
+        }
     }
 }

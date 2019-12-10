@@ -12,7 +12,7 @@ namespace TC.DVDCentral.MVC.Models
         public int MovieId { get; set; }
         public string MovieTitle { get; set; }
         public string MovieDescription { get; set; }
-        public decimal MovieCost { get; set; }
+        public double MovieCost { get; set; }
         public string ImagePath { get; set; }
         [Display(Name = "Select a Rating")]
         public List<Rating> PossibleRatings { get; set; }

@@ -10,8 +10,9 @@ namespace TC.DVDCentral.Models
     {
         public List<Movie> Items { get; set; }
         public int Count { get { return Items.Count; } }
-        public decimal ITEM_PRICE { get; set; }
-        public decimal Cost { get; set; }
+        public double ITEM_PRICE { get; set; }
+        public double SalesTax { get; set; }
+        public double Cost { get; set; }
         public ShoppingCart()
         {
             Items = new List<Movie>();
