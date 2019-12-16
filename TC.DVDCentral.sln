@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDos", "ToDos", "{A92E4F0A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TC.DVDCentral.MVC", "TC.DVDCentral.MVC\TC.DVDCentral.MVC.csproj", "{39B99B5F-B2C0-4FBE-BB61-3A42B69B15A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TC.DVDCentral.WebApi", "TC.DVDCentral.WebApi\TC.DVDCentral.WebApi.csproj", "{78AE6934-E6CE-4297-A862-763846E5BB69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{39B99B5F-B2C0-4FBE-BB61-3A42B69B15A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39B99B5F-B2C0-4FBE-BB61-3A42B69B15A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39B99B5F-B2C0-4FBE-BB61-3A42B69B15A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78AE6934-E6CE-4297-A862-763846E5BB69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78AE6934-E6CE-4297-A862-763846E5BB69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78AE6934-E6CE-4297-A862-763846E5BB69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78AE6934-E6CE-4297-A862-763846E5BB69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

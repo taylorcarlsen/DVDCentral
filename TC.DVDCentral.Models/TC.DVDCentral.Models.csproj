@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Customer.cs" />
     <Compile Include="Director.cs" />
+    <Compile Include="ErrorRecord.cs" />
     <Compile Include="Format.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="Movie.cs" />

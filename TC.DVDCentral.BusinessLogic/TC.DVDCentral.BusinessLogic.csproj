@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectorManager.cs" />
+    <Compile Include="ErrorLogger.cs" />
     <Compile Include="FormatManager.cs" />
     <Compile Include="GenreManager.cs" />
     <Compile Include="MovieManager.cs" />

@@ -11,8 +11,14 @@ namespace TC.DVDCentral.Data
     {
         public DVDCentralContext() :base("DVDCentralDB")
         {
+            /*Database.SetInitializer<DVDCentralContext>
+                (new DVDCentralDBInitializer());*/
+
             Database.SetInitializer<DVDCentralContext>
-                (new DVDCentralDBInitializer());
+                (
+                    new MigrateDatabaseToLatestVersion<DVDCentralContext,
+                    Migrations.Configuration>()
+                );
         }
 
         public DbSet<Customer> Customers { get; set; }
@@ -24,5 +30,6 @@ namespace TC.DVDCentral.Data
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<ErrorRecord> Errors { get; set; }
     }
 }
