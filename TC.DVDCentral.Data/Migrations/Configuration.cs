@@ -11,6 +11,7 @@ namespace TC.DVDCentral.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "TC.DVDCentral.Data.DVDCentralContext";
         }
 

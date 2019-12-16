@@ -9,9 +9,8 @@ namespace TC.DVDCentral.Models
     public class Order
     {
         public int Id;
-        public int CustomerId { get; set; }
-        public int UserId { get; set; }
-        public DateTime OrderDate;
+        public User User { get; set; }
+        public DateTime OrderDate { get; set; }
         public bool PaymentReceipt { get; set; }
         public DateTime ShipDate { get; set; }
     }

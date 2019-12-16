@@ -11,6 +11,7 @@ namespace TC.DVDCentral.BusinessLogic
     {
         public ShoppingCart Cart { get; set; }
         private MovieManager manager;
+        private OrderManager orderManager;
 
         public void Dispose()
         {
@@ -20,9 +21,13 @@ namespace TC.DVDCentral.BusinessLogic
             }
         }
 
-        public void Checkout()
+        public void Checkout(Models.User currentUser)
         {
-            RemoveAll();
+            using (orderManager = new OrderManager())
+            {
+                orderManager.AddOrder(currentUser, Cart.Items);
+            }
+                RemoveAll();
         }
         private void RemoveAll()
         {

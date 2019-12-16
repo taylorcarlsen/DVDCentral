@@ -33,7 +33,7 @@ namespace TC.DVDCentral.MVC.Controllers
             using (manager = new ShoppingCartManager())
             {
                 manager.Cart = cart;
-                manager.Checkout();
+                manager.Checkout(Security.Identity.GetCurrentUser());
                 PersistCart(manager.Cart);
             }
             return View();

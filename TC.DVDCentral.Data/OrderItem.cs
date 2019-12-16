@@ -9,7 +9,7 @@ namespace TC.DVDCentral.Data
     public class OrderItem
     {
         public int Id { get; set; }
-        public Order Order;
+        public Order Order { get; set; }
         public Movie Movie { get; set; }
         public int Quantity { get; set; }
     }
