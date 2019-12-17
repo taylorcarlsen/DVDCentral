@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TC.DVDCentral.BusinessLogic;
 using TC.DVDCentral.Models;
+using TC.DVDCentral.MVC.Security;
 
 namespace TC.DVDCentral.MVC.Controllers
 {
@@ -13,6 +14,7 @@ namespace TC.DVDCentral.MVC.Controllers
         RatingManager manager;
 
         // GET: Ratings
+        [RequireAuthentication]
         public ActionResult Index()
         {
             List<Rating> ratings;
@@ -23,6 +25,7 @@ namespace TC.DVDCentral.MVC.Controllers
             return View(ratings);
         }
 
+        [RequireAuthentication]
         public ActionResult Details(int Id)
         {
             Rating rating;
@@ -35,8 +38,9 @@ namespace TC.DVDCentral.MVC.Controllers
             else
                 return View(rating);
         }
-
+        
         [HttpGet]
+        [RequireAuthentication]
         public ActionResult Edit(int Id)
         {
             Rating rating;
@@ -69,6 +73,7 @@ namespace TC.DVDCentral.MVC.Controllers
         }
 
         [HttpGet]
+        [RequireAuthentication]
         public ActionResult Create()
         {
             Rating rating = new Rating();
@@ -94,6 +99,7 @@ namespace TC.DVDCentral.MVC.Controllers
         }
 
         [HttpGet]
+        [RequireAuthentication]
         public ActionResult Delete(int Id)
         {
             Rating rating;

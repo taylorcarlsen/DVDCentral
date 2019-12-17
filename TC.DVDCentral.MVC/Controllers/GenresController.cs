@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TC.DVDCentral.BusinessLogic;
 using TC.DVDCentral.Models;
+using TC.DVDCentral.MVC.Security;
 
 namespace TC.DVDCentral.MVC.Controllers
 {
@@ -13,6 +14,7 @@ namespace TC.DVDCentral.MVC.Controllers
         GenreManager manager;
 
         // GET: Genres
+        [RequireAuthentication]
         public ActionResult Index()
         {
             List<Genre> genres;
@@ -34,6 +36,7 @@ namespace TC.DVDCentral.MVC.Controllers
             return PartialView(genres);
         }
 
+        [RequireAuthentication]
         public ActionResult Details(int Id)
         {
             Genre genre;
@@ -47,6 +50,7 @@ namespace TC.DVDCentral.MVC.Controllers
                 return View(genre);
         }
 
+        [RequireAuthentication]
         [HttpGet]
         public ActionResult Edit(int Id)
         {
@@ -60,7 +64,6 @@ namespace TC.DVDCentral.MVC.Controllers
                     return View(genre);
             }
         }
-
         [HttpPost]
         public ActionResult Edit(Genre genre)
         {
@@ -79,6 +82,8 @@ namespace TC.DVDCentral.MVC.Controllers
                 return View(genre.Id);
         }
 
+
+        [RequireAuthentication]
         [HttpGet]
         public ActionResult Create()
         {
@@ -104,6 +109,7 @@ namespace TC.DVDCentral.MVC.Controllers
                 return View(genre.Id);
         }
 
+        [RequireAuthentication]
         [HttpGet]
         public ActionResult Delete(int Id)
         {

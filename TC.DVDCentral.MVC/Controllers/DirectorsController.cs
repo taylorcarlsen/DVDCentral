@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TC.DVDCentral.BusinessLogic;
 using TC.DVDCentral.Models;
+using TC.DVDCentral.MVC.Security;
 
 namespace TC.DVDCentral.MVC.Controllers
 {
@@ -13,6 +14,7 @@ namespace TC.DVDCentral.MVC.Controllers
         DirectorManager manager;
 
         // GET: Directors
+        [RequireAuthentication]
         public ActionResult Index()
         {
             List<Director> directors;
@@ -24,6 +26,7 @@ namespace TC.DVDCentral.MVC.Controllers
                 return View(directors);
         }
 
+        [RequireAuthentication]
         public ActionResult Details(int Id)
         {
             Director director;
@@ -37,6 +40,7 @@ namespace TC.DVDCentral.MVC.Controllers
                 return View(director);
         }
 
+        [RequireAuthentication]
         [HttpGet]
         public ActionResult Edit(int Id)
         {
@@ -69,6 +73,7 @@ namespace TC.DVDCentral.MVC.Controllers
                 return View(director.Id);
         }
 
+        [RequireAuthentication]
         [HttpGet]
         public ActionResult Create()
         {
@@ -94,6 +99,7 @@ namespace TC.DVDCentral.MVC.Controllers
                 return View(director.Id);
         }
 
+        [RequireAuthentication]
         [HttpGet]
         public ActionResult Delete(int Id)
         {

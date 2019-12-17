@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using TC.DVDCentral.BusinessLogic;
 using TC.DVDCentral.Models;
 using TC.DVDCentral.MVC.Models;
+using TC.DVDCentral.MVC.Security;
 
 namespace TC.DVDCentral.MVC.Controllers
 {
@@ -15,6 +16,7 @@ namespace TC.DVDCentral.MVC.Controllers
         MovieManager manager;
 
         // GET: Movies
+        [RequireAuthentication]
         public ActionResult Index()
         {
             List<DVDCentral.Models.Movie> movies;
@@ -26,6 +28,7 @@ namespace TC.DVDCentral.MVC.Controllers
             return View(movies);
         }
 
+        [RequireAuthentication]
         public ActionResult GetAllByGenreId(int id)
         {
             List<DVDCentral.Models.Movie> movies;
@@ -43,6 +46,7 @@ namespace TC.DVDCentral.MVC.Controllers
         }
 
         // GET: Movies/Details/5
+        [RequireAuthentication]
         public ActionResult Details(int id)
         {
             Movie movie;
@@ -62,6 +66,7 @@ namespace TC.DVDCentral.MVC.Controllers
         }
 
         // GET: Movies/Create
+        [RequireAuthentication]
         public ActionResult Create()
         {
             MovieViewModel viewModel = new MovieViewModel();
@@ -123,6 +128,7 @@ namespace TC.DVDCentral.MVC.Controllers
         }
 
         // GET: Movies/Edit/5
+        [RequireAuthentication]
         public ActionResult Edit(int id)
         {
             Movie movie = new Movie();
@@ -192,6 +198,7 @@ namespace TC.DVDCentral.MVC.Controllers
         }
 
         // GET: Movies/Delete/5
+        [RequireAuthentication]
         public ActionResult Delete(int id)
         {
             Movie movie;
